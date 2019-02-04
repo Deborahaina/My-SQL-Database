@@ -1,32 +1,31 @@
-
 USE sakila;
 -- 1a. Display the first and last names of all actors from the table actor.
 
-SELECT first_name, 
-last_name
+SELECT first_name AS `First Name`, 
+last_name AS `Last Name`
 FROM
 actor a;
 
 -- 1b. Display the first and last name of each actor in a single column in upper case letters. 
 -- Name the column Actor Name.
 
-SELECT first_name,
-last_name,
-CONCAT(last_name, ", ", first_name) AS `Actor Name`
+SELECT first_name AS `First Name`,
+last_name AS `Last Name`
+-- CONCAT(last_name, ", ", first_name) AS `Actor Name`
 FROM actor;
 
 -- 2a. You need to find the ID number, first name, and last name of an actor, of whom you know only the first name, "Joe." 
 -- What is one query would you use to obtain this information?
 
-SELECT first_name,
-last_name,
+SELECT first_name AS `First Name`,
+last_name AS `Last Name`,
 actor_id
 FROM 
 actor WHERE first_name = "Joe";
 
 -- 2b. Find all actors whose last name contain the letters GEN:
-SELECT last_name,
-first_name
+SELECT last_name AS `Last Name`,
+first_name AS `First Name`
 FROM 
 actor
 WHERE 
@@ -35,8 +34,8 @@ last_name LIKE '%GEN%';
 -- 2c. Find all actors whose last names contain the letters LI. 
 -- This time, order the rows by last name and first name, in that order:
 
-SELECT last_name,
-first_name FROM 
+SELECT last_name AS `Last Name`,
+first_name AS`First Name` FROM
 actor WHERE
 last_name LIKE '%LI%' 
 ORDER BY last_name;
@@ -47,8 +46,8 @@ ORDER BY last_name;
 USE sakila;
 
 SELECT 
-country_id,
-country FROM country
+country_id AS `Country ID`,
+country AS `Country` FROM country
 WHERE 
 country IN ('Afghanistan', 'Bangladesh', 'China');
 
@@ -65,7 +64,7 @@ description BLOB NOT NULL);
 ALTER TABLE actor DROP description;
 
 -- 4a. List the last names of actors, as well as how many actors have that last name.
-SELECT last_name,
+SELECT last_name AS `Last Names`,
 COUNT(*) as 'Counts of Last Names'
 FROM actor
 GROUP BY last_name;
@@ -73,8 +72,8 @@ GROUP BY last_name;
 -- 4b. List last names of actors and the number of actors who have that last name, 
 -- but only for names that are shared by at least two actors
 
-SELECT last_name,
-COUNT(*)
+SELECT last_name AS `Last Names`,
+COUNT(*) AS `Two or More`
 FROM actor
 GROUP BY last_name
 HAVING COUNT(*) >= 2;
@@ -88,7 +87,8 @@ AND last_name = 'Williams';
 -- Check to see if name updated
 SELECT * FROM actor where last_name= 'Williams';
 
-
+-- 4d. Perhaps we were too hasty in changing GROUCHO to HARPO. It turns out that GROUCHO was the correct name after all! 
+-- In a single query, if the first name of the actor is currently HARPO, change it to GROUCHO.
 UPDATE actor
 SET first_name = 'Groucho'
 WHERE first_name= 'Harpo'
@@ -102,9 +102,8 @@ SHOW CREATE TABLE address;
 
 -- 6a.Use JOIN to display the first and last names, as well as the address, of 
 -- each staff member. Use the tables staff and address:
-SELECT st.last_name,
-st.first_name,
--- CONCAT(st.last_name,', ', st.first_name) AS `Staff Full Name`,
+SELECT
+CONCAT(st.last_name,', ', st.first_name) AS `Staff Full Name`,
 a.address
 FROM staff st
 INNER JOIN address a 
@@ -266,6 +265,7 @@ SELECT * FROM sakila.`top genres`;
 -- 8c. You find that you no longer need the view top_five_genres. 
 -- Write a query to delete it.
 DROP VIEW `top genres`;
+
 
 
 
