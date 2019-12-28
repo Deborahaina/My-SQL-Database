@@ -5,21 +5,21 @@ MySQL stored procedures, database views, triggers. I will be using the in-built 
 mySQL.
 
 MySQL Query Statements In this project
-USE
-CREATE
-SELECT
-WHERE
-HAVING
-LIKE
-USING 
+USE,
+CREATE,
+SELECT,
+WHERE,
+HAVING,
+LIKE,
+USING ,
 ON
 
 Advanced MySQL Techiques
-SUBQUERIES
-SELFJOINS
-ALTER JOINS(INNER AND LEFT JOINS)
-UNIONS
-VIEWS
+SUBQUERIES,
+SELFJOINS,
+ALTER JOINS(INNER AND LEFT JOINS),
+UNIONS,
+VIEWS,
 STORED PROCEDURE
 
 
