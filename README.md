@@ -12,6 +12,7 @@ WHERE,
 HAVING,
 LIKE,
 USING ,
+SET,
 ON
 
 Advanced MySQL Techiques
