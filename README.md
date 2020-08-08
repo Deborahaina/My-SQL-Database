@@ -24,4 +24,4 @@ VIEWS,
 STORED PROCEDURE
 
 
-Emailme: Deborah.aina@outlook.com
+Email: Deborah.aina@outlook.com
